@@ -1,0 +1,56 @@
+1. Start by getting a feel for the orders table:
+
+ SELECT *
+ FROM orders
+ LIMIT 10;
+
+2. HOW RECENT IS THE DATA
+
+SELECT order_date
+FROM orders
+ORDER BY order_date DESC;
+
+3. Write a query that selects only the special_instructions column
+
+SELECT special_instructions
+FROM orders
+LIMIT 20;
+
+4. CAN YOU EDIT THE QUERY SO THAT WE ARE THE ONLY RETURNING THE SPECIAL INSTRUCTIONS?
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions is NOT NULL;
+
+5. LETS GO EVEN FURTHER AND SORT THE INSTRUCTIONS IN ALPHABETICAL ORDER
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions is NOT NULL
+ORDER BY special_instructions ASC
+LIMIT 20;
+
+6. LETS SEARCH FOR SPECIAL INSTRUCTIONS THAT HAVE THE WORD 'sauce'
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%sauce%';
+
+7. LETS SEARCH FOR SPECIAL INSTRUCTIONS THAT HAVE THE WORD 'DOOR'.
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%door%';
+
+8. LETS SEARCH FOR SPECIAL INSTRUCTIONS THAT HAVE THE WORD 'BOX'
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%box%';
+
+9. instead of returning the special instructions, also return their order id's
+
+SELECT id AS '#', 
+   special_instructions AS 'Notes'
+FROM orders
+WHERE special_instructions LIKE '%box%';
